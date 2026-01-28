@@ -1,0 +1,40 @@
+{
+  "name": "task3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.4",
+    "@nomicfoundation/hardhat-ethers-chai-matchers": "^3.0.2",
+    "@nomicfoundation/hardhat-ignition": "^3.0.7",
+    "@nomicfoundation/hardhat-ignition-ethers": "^3.0.7",
+    "@nomicfoundation/hardhat-mocha": "^3.0.9",
+    "@nomicfoundation/hardhat-network-helpers": "^3.0.3",
+    "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.2",
+    "@nomicfoundation/hardhat-typechain": "^3.0.1",
+    "@types/chai": "^4.3.20",
+    "@types/chai-as-promised": "^8.0.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.19.7",
+    "chai": "^5.3.3",
+    "dotenv": "^17.2.3",
+    "ethers": "^6.16.0",
+    "forge-std": "github:foundry-rs/forge-std#v1.9.4",
+    "hardhat": "^3.1.5",
+    "mocha": "^11.7.5",
+    "rocketh": "^0.17.13",
+    "typescript": "~5.8.0"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^1.5.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "@openzeppelin/contracts-upgradeable": "^5.4.0"
+  }
+}
