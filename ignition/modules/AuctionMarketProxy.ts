@@ -1,20 +1,29 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
-const AuctionMarketProxyModule = buildModule("AuctionMarketProxy", (m) => {
-  // 你也可以改成 m.getParameter(...)，部署时用参数文件传入
-  const platformFee = m.getParameter("platformFee", 250); // 2.5%
+const AuctionMarketProxyModule = buildModule(
+  "AuctionMarketProxyModule",
+  (m) => {
+    const platformFee = m.getParameter("platformFee", 250); // 2.5%
 
-  // 1) 部署 V1 impl
-  const implV1 = m.contract("AuctionMarket");
+    // 1) deploy AuctionMarket V1 impl
+    const implV1 = m.contract("AuctionMarket");
 
-  // 2) 部署 proxy（你的 ERC1967ProxyWrapper 构造是 (impl, initData)）
-  const proxy = m.contract("ERC1967ProxyWrapper", [implV1, "0x"]);
+    const initData = m.encodeFunctionCall(implV1, "initialize", [platformFee]);
 
-  // 3) 用 V1 ABI attach proxy，并 initialize
-  const proxiedMarket = m.contractAt("AuctionMarket", proxy);
-  m.call(proxiedMarket, "initialize", [platformFee]);
+    // 2) deploy proxy
+    const proxy = m.contract("ERC1967ProxyWrapper", [implV1, initData]);
 
-  return { implV1, proxy, proxiedMarket };
-});
+    // 3) attach V1 ABI to proxy
+    const proxiedMarket = m.contractAt("AuctionMarket", proxy, {
+      id: "proxiedMarket",
+    });
+
+    return { implV1, proxy, proxiedMarket };
+  },
+);
 
 export default AuctionMarketProxyModule;
+// npx hardhat ignition deploy ignition/modules/AuctionMarketProxy.ts --deployment-id local-v1
+// npx hardhat ignition deploy ignition/modules/AuctionMarketProxy.ts --network sepolia --deployment-id sepolia-v1 --parameters ignition/parameters/sepolia.json
+
+// npx hardhat ignition verify sepolia-v1

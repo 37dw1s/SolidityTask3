@@ -21,3 +21,6 @@
 
 # dotenv environment variables file
 .env
+
+# Ignition Deploy Artifacts
+/ignition/deployments

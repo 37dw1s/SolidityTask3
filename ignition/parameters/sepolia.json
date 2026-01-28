@@ -1,0 +1,9 @@
+{
+  "AuctionMarketProxyModule": {
+    "platformFee": 300
+  },  
+  "AuctionMarketUpgradeV2Module": {
+    "platformFee": 300,
+    "proxyAddress": "0x408dd9101C1aAF498dF0e26280aFb6CEC6Ac7fDE"
+  }
+}

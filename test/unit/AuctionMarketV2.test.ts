@@ -44,21 +44,6 @@ describe("AuctionMarketV2 (Unit)", function () {
     // Attach market to proxy
     const proxiedMarket = AuctionMarket.attach(proxy.target);
 
-    // Deploy V2
-    // const AuctionMarketV2 = await ethers.getContractFactory("AuctionMarketV2");
-    // const marketV2 = await AuctionMarketV2.deploy();
-    // await marketV2.waitForDeployment();
-
-    // const proxiedMarketV2 = AuctionMarketV2.attach(proxy.target);
-    // (
-    //   await proxiedMarketV2
-    //     .connect(deployer)
-    //     .upgradeToAndCall(
-    //       marketV2.target,
-    //       proxiedMarketV2.interface.encodeFunctionData("initialize", [300]),
-    //     )
-    // ).wait();
-
     // Set local testing price feeds
     await proxiedMarket.setPriceFeed(ZeroAddress, ethFeed.target);
     await proxiedMarket.setPriceFeed(await usdc.getAddress(), usdcFeed.target);
