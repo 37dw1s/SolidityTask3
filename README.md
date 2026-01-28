@@ -197,7 +197,9 @@ npx hardhat node
 #### 部署 MockNFT
 
 ```bash
-npx hardhat ignition deploy ignition/modules/MockNFT.ts --network sepolia --deployment-id sepolia-nft
+npx hardhat ignition deploy ignition/modules/MockNFT.ts \
+  --network sepolia \
+  --deployment-id sepolia-nft
 ```
 
 ---
@@ -205,7 +207,10 @@ npx hardhat ignition deploy ignition/modules/MockNFT.ts --network sepolia --depl
 ### 2. Sepolia 部署 V1 + Proxy
 
 ```bash
-npx hardhat ignition deploy ignition/modules/AuctionMarketProxy.ts --network sepolia --deployment-id sepolia-v1 --parameters ignition/parameters/sepolia.json
+npx hardhat ignition deploy ignition/modules/AuctionMarketProxy.ts \
+  --network sepolia \
+  --deployment-id sepolia-v1 \
+  --parameters ignition/parameters/sepolia.json
 ```
 
 ---
@@ -213,7 +218,10 @@ npx hardhat ignition deploy ignition/modules/AuctionMarketProxy.ts --network sep
 ### 3. Sepolia 升级到 V2
 
 ```bash
-npx hardhat ignition deploy ignition/modules/AuctionMarketUpgradeV2.ts --network sepolia --deployment-id sepolia-v2 --parameters ignition/parameters/sepolia.json
+npx hardhat ignition deploy ignition/modules/AuctionMarketUpgradeV2.ts \
+  --network sepolia \
+  --deployment-id sepolia-v2 \
+  --parameters ignition/parameters/sepolia.json
 ```
 
 ---
