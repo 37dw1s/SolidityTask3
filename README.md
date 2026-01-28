@@ -198,7 +198,7 @@ npx hardhat node
 
 ```bash
 npx hardhat ignition deploy ignition/modules/MockNFT.ts \
-  --network sepolia \
+  --network localhost \
   --deployment-id sepolia-nft
 ```
 
